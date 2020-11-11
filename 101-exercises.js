@@ -1080,8 +1080,14 @@ addToDone("Exercise 66 is correct.")
 // Exercise 67
 // Write a function definition named onlyOddNumbers that takes in sequence of numbers and returns the odd numbers in an array.
 
-const onlyOddNumbers = str => Array.from(str)
-    .filter(letter => '2468-2-4-6-8'.includes(letter)).length;
+//const onlyOddNumbers = str => Array.from(str)
+//  .filter(letter => '2468-2-4-6-8'.includes(letter)).length;
+
+function onlyOddNumbers(x) {
+    return x.filter(isOdd);
+
+}
+
 
 assert(onlyOddNumbers([1, 2, 3]), [1, 3], "Exercise 67");
 assert(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -3, -1, 1, 3, 5], "Exercise 67");
@@ -1093,6 +1099,10 @@ addToDone("Exercise 67 is correct.")
 // Exercise 68
 // Write a function definition named onlyEvenNumbers that takes in sequence of numbers and returns the even numbers in an array.
 
+function onlyEvenNumbers(x) {
+    return x.filter(isEven);
+}
+
 assert(onlyEvenNumbers([1, 2, 3]), [2], "Exercise 68");
 assert(onlyEvenNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-4, -2, 2, 4], "Exercise 68");
 assert(onlyEvenNumbers([-4, -3, 1]), [-4], "Exercise 68");
@@ -1102,6 +1112,10 @@ addToDone("Exercise 68 is correct.")
 // Exercise 69
 // Write a function definition named onlyPositiveNumbers that takes in sequence of numbers and returns the positive numbers in an array.
 
+function onlyPositiveNumbers(x) {
+    return x.filter(isPositive);
+}
+
 assert(onlyPositiveNumbers([1, 2, 3]), [1, 2, 3], "Exercise 69");
 assert(onlyPositiveNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [1, 2, 3, 4, 5], "Exercise 69");
 assert(onlyPositiveNumbers([-4, -3, 1]), [1], "Exercise 69");
@@ -1110,6 +1124,10 @@ addToDone("Exercise 69 is correct.")
 
 // Exercise 70
 // Write a function definition named onlyNegativeNumbers that takes in sequence of numbers and returns the negative numbers in an array.
+
+function onlyNegativeNumbers(x) {
+    return x.filter(isNegative);
+}
 
 assert(onlyNegativeNumbers([1, 2, 3]), [], "Exercise 70");
 assert(onlyNegativeNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -4, -3, -2, -1], "Exercise 70");
@@ -1121,6 +1139,10 @@ addToDone("Exercise 70 is correct.");
 // Exercise 71
 // Write a function definition named hasEvens that takes in sequence of numbers and returns true if there are any even numbers in the sequence
 
+function hasEvens(x) {
+    return (x.find(isEven) !== undefined);
+}
+
 assert(hasEvens([1, 2, 3]), true, "Exercise 71");
 assert(hasEvens([2, 5, 6]), true, "Exercise 71");
 assert(hasEvens([3, 3, 3]), false, "Exercise 71");
@@ -1131,6 +1153,19 @@ addToDone("Exercise 71 is correct.");
 
 // Exercise 72
 // Write a function definition named countEvens that takes in sequence of numbers and returns the number of even numbers
+
+//function countEvens(x) {
+//  var i = 0; x.forEach(isEven,++i); return i;
+//}
+
+function countEvens(x) {
+    while (i< x.length) {
+        var i = 0;
+        var even = 0;
+        if (isEven(x[i])) {even++}
+        ++i
+    }
+}
 
 assert(countEvens([1, 2, 3]), 1, "Exercise 72");
 assert(countEvens([2, 5, 6]), 2, "Exercise 72");
