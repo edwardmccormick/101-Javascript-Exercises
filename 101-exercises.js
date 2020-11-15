@@ -1383,6 +1383,10 @@ addToDone("Exercise 84 is correct.")
 // Write a function named flatten that takes in an array of arrays. Return the flattened array.
 
 
+function flatten(x) {
+    return x.flat()
+}
+
 assert(flatten([[1, 2], [3, 4], [5, 6]]), [1, 2, 3, 4, 5, 6], "Exercise 85");
 assert(flatten([[1, 2, 3], [1, 2, 3], [1, 2, 3]]), [1, 2, 3, 1, 2, 3, 1, 2, 3], "Exercise 85");
 assert(flatten([["tomato", "mango", "kiwi"], ["eggplant", "broccoli"]]), ["tomato", "mango", "kiwi", "eggplant", "broccoli"], "Exercise 85");
@@ -1405,7 +1409,7 @@ addToDone("Exercise 86 is correct.")
 
 // Working with JS Objects
 
-// The following objects 
+// The following objects
 const tukeyPaper = {
     "title": "The Future of Data Analysis",
     "author": "John W. Tukey",
@@ -1424,6 +1428,10 @@ const thomasPaper = {
 // Exercise 87
 // Write a function named getPaperTitle that takes in a object and returns the title property
 
+function getPaperTitle(x) {
+    return x.title;
+}
+
 assert(getPaperTitle(tukeyPaper), "The Future of Data Analysis", "Exercise 87");
 assert(getPaperTitle(thomasPaper), "A mathematical model of glutathione metabolism", "Exercise 87");
 addToDone("Exercise 87 is correct.")
@@ -1431,6 +1439,10 @@ addToDone("Exercise 87 is correct.")
 
 // Exercise 88
 // Write a function named getYearPublished that takes in an objects and returns the value behind the "year_published" key.
+
+function getYearPublished(x) {
+    return x.year_published
+}
 
 assert(getYearPublished(tukeyPaper), 1962, "Exercise 88");
 assert(getYearPublished(thomasPaper), 2008, "Exercise 88");
@@ -1447,6 +1459,10 @@ const book = {
 // Exercise 89
 // Write a function named getPrice that takes in a object and returns the price
 
+function getPrice(x) {
+    return x.price
+}
+
 assert(getPrice(book), 36.99, "Exercise 89");
 addToDone("Exercise 89 is complete.")
 
@@ -1455,13 +1471,16 @@ addToDone("Exercise 89 is complete.")
 // Exercise 90
 // Write a function named getBookAuthor that takes in a object (the above declared book variable) and returns the author's name
 
+function getBookAuthor(x) {
+    return x.author
+}
 
 assert(getBookAuthor(book), "Frances Buontempo", "Exercise 90");
 addToDone("Exercise 90 is complete.")
 
 
 // The next exercises work with a arrays of objects.
-// You'll see arrays of objects over and over again with data in a program. 
+// You'll see arrays of objects over and over again with data in a program.
 // Here is our arrays of objects.
 const books = [
     {
@@ -1490,6 +1509,10 @@ const books = [
 // Exercise 91
 // Write a function named getNumberOfBooks that takes in a array of objects and returns the number of objects in that array.
 
+function getNumberOfBooks(x) {
+    return x.length
+}
+
 assert(getNumberOfBooks(books), 4, "Exercise 91");
 addToDone("Exercise 91 is complete.")
 
@@ -1498,12 +1521,26 @@ addToDone("Exercise 91 is complete.")
 // Exercise 92
 // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
 
+function totalOfBookPrices(x) {
+    var i = 0;
+    var y = 0;
+    while (i<x.length) {y += x[i].price; i++}
+    return y;
+}
+
 assert(totalOfBookPrices(books), 122.9, "Exercise 92")
 addToDone("Exercise 92 is complete.")
 
 
 // Exercise 93
 // Write a function named getAverageBookPrice that takes in a array of objects and returns the average book price.
+
+function getAverageBookPrice(x) {
+    var i = 0;
+    var y = 0;
+    while (i<x.length) {y += x[i].price; i++}
+    return y/x.length;
+}
 
 assert(getAverageBookPrice(books), 30.725, "Exercise 93");
 addToDone("Exercise 93 is complete.")
@@ -1512,6 +1549,14 @@ addToDone("Exercise 93 is complete.")
 // Exercise 94
 // Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
+
+function highestPriceBook(x) {
+    var i = 0;
+    var y = 0;
+    var z
+    while (i<x.length) {if (y<x[i].price) {y = x[i].price; z = i}; i++}
+    return x[z]
+}
 
 assert(highestPriceBook(books), {
     "title": "The Visual Display of Quantitative Information",
@@ -1527,6 +1572,13 @@ addToDone("Exercise 94 is complete")
 // Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
 
+function lowestPriceBook(x) {
+    var i = 0;
+    var y = x[0].price;
+    var z;
+    while (i<x.length) {if (y>x[i].price) {y = x[i].price; z = i}; i++}
+    return x[z]
+}
 
 assert(lowestPriceBook(books), {
     "title": "Weapons of Math Destruction",
@@ -1572,14 +1624,22 @@ const shoppingCart = {
 // Write a function named getTaxRate that takes in the above shopping cart as input and returns the tax rate.
 // Hint: How do you access a key's value on a object? The tax rate is one key of the entire shoppingCart object.
 
+function getTaxRate(x) {
+    return x.tax
+}
+
 assert(getTaxRate(shoppingCart), .08, "Exercise 96");
 addToDone("Exercise 96 is complete")
 
 
 
 // Exercise 97
-// Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart. 
+// Write a function named numberOfItemTypes that takes in the shopping cart as input and returns the number of unique item types in the shopping cart.
 // We're not yet using the quantity of each item, but rather focusing on determining how many different types of items are in the cart.
+
+function numberOfItemTypes(x) {
+    return x.items.length
+}
 
 assert(numberOfItemTypes(shoppingCart), 5, "Exercise 97");
 addToDone("Exercise 97 is complete.")
@@ -1590,6 +1650,11 @@ addToDone("Exercise 97 is complete.")
 // Write a function named totalNumberOfItems that takes in the shopping cart as input and returns the total number all item quantities.
 // This should return the sum of all of the quantities from each item type
 
+
+function totalNumberOfItems(x) {
+    return x.items[0].quantity + x.items[1].quantity + x.items[2].quantity + x.items[3].quantity + x.items[4].quantity
+}
+
 assert(totalNumberOfItems(shoppingCart), 17, "Exercise 98");
 addToDone("Exercise 98 is complete.")
 
@@ -1598,6 +1663,10 @@ addToDone("Exercise 98 is complete.")
 // Exercise 99
 // Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
 // Hint - This should determine the total price divided by the number of types of items. This does not account for each item type's quantity.\
+
+function getAverageItemPrice(x) {
+    return (x.items[0].price + x.items[1].price + x.items[2].price + x.items[3].price + x.items[4].price)/(x.items.length)
+}
 
 assert(getAverageItemPrice(shoppingCart), 2.1420000000000003, "Exercise 99");
 addToDone("Exercise 99 is complete.")
@@ -1608,15 +1677,28 @@ addToDone("Exercise 99 is complete.")
 // Write a function named getAverageSpentPerItem that takes in the shopping cart and returns the average of summing each item's quanties times that item's price.
 // Hint: You may need to set an initial total price and total total quantity to zero, then sum up and divide that total price by the total quantity
 
+function getAverageSpentPerItem(x) {
+    var total = x.items[0].price * x.items[0].quantity + x.items[1].price * x.items[1].quantity + x.items[2].price*x.items[2].quantity + x.items[3].price * x.items[3].quantity + x.items[4].price * x.items[4].quantity;
+    return total/(totalNumberOfItems(x)) ;
+}
+
 assert(getAverageSpentPerItem(shoppingCart), 1.333529411764706, "Exercise 100");
 addToDone("Exercise 100 is complete.")
 
 
 // Exercise 101
 // Write a function named mostSpentOnItem that takes in the shopping cart as input and returns the object associated with the item that has the highest price*quantity.
-// Be sure to do this as programmatically as possible. 
+// Be sure to do this as programmatically as possible.
 // Hint: Similarly to how we sometimes begin a function with setting a variable to zero, we need a starting place:
 // Hint: Consider creating a variable that is a object with the keys "price" and "quantity" both set to 0. You can then compare each item's price and quantity total to the one from "most"
+
+function mostSpentOnItem(x) {
+    var i = 0;
+    var y = x.items[0].price * x.items[0].quantity;
+    var z = 0;
+    while (i<x.items.length) {if (y<=x.items[i].price * x.items[i].quantity) {y = x.items[i].price * x.items[i].quantity; z = i}; i++}
+    return x.items[z]
+}
 
 assert(mostSpentOnItem(shoppingCart), {
     "title": "chocolate",
