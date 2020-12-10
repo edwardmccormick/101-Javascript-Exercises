@@ -722,12 +722,21 @@ addToDone("Exercise 47 is correct.")
 // Exercise 48
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
 
+var vowels = ["a","e","i","o","u"]
+function endsWithVowel (x) {
+    var v = 0
+    for ( var i = 0; i < vowels.length; i++) {
+        if(x.CharAt(x.length-1) === vowels[i]) {v++}
+        return v>0
+    }
 
 assert(endsWithVowel("ubuntu"), true, "Exercise 48");
 assert(endsWithVowel("banana"), true, "Exercise 48");
 assert(endsWithVowel("mango"), true, "Exercise 48");
 assert(endsWithVowel("spinach"), false, "Exercise 48");
 addToDone("Exercise 48 is correct.")
+
+
 
 
 // Exercise 49
@@ -859,6 +868,13 @@ addToDone("Exercise 61 is correct.")
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
 
+    function median(x) {
+        x.sort(function(a, b) {
+            return a - b;
+        });
+        if (x.length%2 != 0) {return x[(x.length/2)-(x.length/2%1)]} else {return (((x[(x.length/2-1)])+(x[x.length/2]))/2)}
+    }
+
 assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
 assert(median([1, 2, 3]), 2.0, "Exercise 62");
 assert(median([1, 5, 6]), 5.0, "Exercise 62");
@@ -948,7 +964,15 @@ addToDone("Exercise 70 is correct.");
 // Exercise 71
 // Write a function definition named hasEvens that takes in sequence of numbers and returns true if there are any even numbers in the sequence
 
-assert(hasEvens([1, 2, 3]), true, "Exercise 71");
+    function hasEvens(x) {
+        var counter = 0
+        for (var i =0; i>x.length;i++) {
+            if(isEven(x[i]) {counter++}
+            return counter>0
+        }
+    }
+
+    assert(hasEvens([1, 2, 3]), true, "Exercise 71");
 assert(hasEvens([2, 5, 6]), true, "Exercise 71");
 assert(hasEvens([3, 3, 3]), false, "Exercise 71");
 assert(hasEvens([]), false, "Exercise 71");
