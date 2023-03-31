@@ -9,10 +9,10 @@
 3. Use Glitch.com as your editor
 
 ## Orientation
-- `index.html` is the page that runs all the JS contained in `101-exercises.js`
+- `index.html` is the page that runs all the JS contained in `101-exercises-already-completed-theoriginal.js`
 - Open the JavaScript console in Firefox or Chrome. F12 usually works.
-- Start writing solutions inside of 101-exercises.js in the editor.
-- Refresh `index.html` to re-run any new changes from 101-exercises.js
+- Start writing solutions inside of 101-exercises-already-completed-theoriginal.js in the editor.
+- Refresh `index.html` to re-run any new changes from 101-exercises-already-completed-theoriginal.js
 
 ## Rationale
 - 101 Exercises exists to help learners gain deep practice with fundamentals, operators, syntax, and converting problems in English to solutions in JS.
@@ -42,7 +42,7 @@
         <p>
             <em>Reference Error</em> means you need to define the variable or function. 
             <br>
-            The number by the 101-exercises.js filename highlights the line where the variable is referenced before it exist
+            The number by the 101-exercises-already-completed-theoriginal.js filename highlights the line where the variable is referenced before it exist
         </p>
         <img src="https://cdn.glitch.com/eea181be-12a8-4dfb-9200-096233b7a427%2Freference_error.png?v=1566406423258" alt="image of a reference">
     </figure>
@@ -50,7 +50,7 @@
         <p>
             <em>Syntax Error</em> means there's a syntax error that needs to be fixed. 
             <br>
-            The number by the 101-exercises.js filename highlights the line where the syntax error exists.
+            The number by the 101-exercises-already-completed-theoriginal.js filename highlights the line where the syntax error exists.
         </p>
         <img src="https://cdn.glitch.com/eea181be-12a8-4dfb-9200-096233b7a427%2Fsyntax_error.png?v=1566406423173" alt="image of a syntax error">
     </figure>
@@ -58,7 +58,7 @@
         <p>
             <em>Uncaught Error</em> means the answer is incorrect and doesn't match the test. 
             <br>    
-            The number by the 101-exercises.js filename highlights the line for the exercise where the expected value in the test does not match the actual value provided by the attempted solution. Ignore the line number 6 in assert.js.
+            The number by the 101-exercises-already-completed-theoriginal.js filename highlights the line for the exercise where the expected value in the test does not match the actual value provided by the attempted solution. Ignore the line number 6 in assert.js.
         </p>
         <img src="https://cdn.glitch.com/eea181be-12a8-4dfb-9200-096233b7a427%2Funcaught_error.png?v=1566406423323" alt="uncaught error message">
     </figure>
