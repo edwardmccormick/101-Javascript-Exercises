@@ -618,7 +618,7 @@ addToDone("Exercise 40 is correct.")
 // Exercise 41
 // Write a function definition named areaOfCircle that takes in a number representing a circle's radius and returns the area of the circle
 
-function areaOfCircle(x) {return x*Math.PI}
+function areaOfCircle(x) {return x**2*Math.PI}
 
 assert(areaOfCircle(3), 28.274333882308138, "Exercise 41");
 assert(areaOfCircle(5), 78.53981633974483, "Exercise 41");
@@ -654,10 +654,10 @@ function isOneOrTwoOrThree(x) {
 // Exercise 43
 // Review this code carefully https://gist.github.com/ryanorsinger/5627b954d119dabb3d8c44d56b38c354 if you want more guidance on Exercises 43, 44, and 45.
 // Write a function definition named isVowel that takes in value and returns true if the value is a, e, i, o, u in upper or lower case.
-function isVowel(x) {
-    vowels = ["a","i","o","u"]
-    return vowels.contains(x.toLowerCase())
-}
+const vowels = ["a","i","o","u"]
+
+function isVowel(x) {return vowels.includes(x.toLowerCase())}
+
 assert(isVowel("a"), true, "Exercise 43");
 assert(isVowel("U"), true, "Exercise 43");
 assert(isVowel("banana"), false, "Exercise 43");
@@ -669,6 +669,13 @@ addToDone("Exercise 43 is correct.")
 // Exercise 44
 // Write a function definition named hasVowels that takes in value and returns true if the string contains any vowels.
 
+function hasVowels(x) {
+    for (let i=0; i<vowels.length; i++) {
+        if (x.includes(vowels[i])) {return true}
+    }
+    return false
+}
+
 assert(hasVowels("banana"), true, "Exercise 44");
 assert(hasVowels("ubuntu"), true, "Exercise 44");
 assert(hasVowels("QQQQ"), false, "Exercise 44");
@@ -678,6 +685,32 @@ addToDone("Exercise 44 is correct.")
 
 // Exercise 45
 // Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
+
+function countVowels(x) {
+    let vowelcounter = 0
+    for (let i=0; i<vowels.length; i++) {
+        vowelcounter += x.split(vowels[i]).length-1
+    }
+    return vowelcounter
+}
+
+function alternatecountVowels(x) {
+    let vowelcounter = 0
+    // vowelcounter += x.match(/a/g)||[]).length
+    // vowelcounter += x.match(/e/g)||[]).length
+    // vowelcounter += x.match(/i/g)||[]).length
+    // vowelcounter += x.match(/o/g)||[]).length
+    // vowelcounter += x.match(/u/g)||[]).length
+    return vowelcounter}
+
+function regexcountVowels(x) {
+    let vowelcounter = 0
+    for (let i = 0; i<vowels.length; i++) {
+        vowelcounter += x.match("/" + vowels[i] + "/g||[]").length
+    }
+
+    return vowelcounter
+}
 
 assert(countVowels("banana"), 3, "Exercise 45");
 assert(countVowels("ubuntu"), 3, "Exercise 45");
