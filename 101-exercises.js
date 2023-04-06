@@ -1338,6 +1338,10 @@ addToDone("Exercise 92 is complete.")
 // Exercise 93
 // Write a function named getAverageBookPrice that takes in a array of objects and returns the average book price.
 
+function getAverageBookPrices(x) {
+    return totalOfBookPrices(x) / x.length
+}
+
 assert(getAverageBookPrice(books), 30.725, "Exercise 93");
 addToDone("Exercise 93 is complete.")
 
@@ -1345,6 +1349,8 @@ addToDone("Exercise 93 is complete.")
 // Exercise 94
 // Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
+
+function higestPriceBook(x) {x.sort()}
 
 assert(highestPriceBook(books), {
     "title": "The Visual Display of Quantitative Information",
